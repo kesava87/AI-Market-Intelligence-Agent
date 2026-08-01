@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ========================================= -->
+    <!-- META -->
+    <!-- ========================================= -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Market Intelligence Platform</title>
+
+    <!-- ========================================= -->
+    <!-- GOOGLE FONTS -->
+    <!-- ========================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- ========================================= -->
+    <!-- FONT AWESOME -->
+    <!-- ========================================= -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ========================================= -->
+    <!-- CHART JS -->
+    <!-- ========================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- ========================================= -->
+<!-- STYLESHEET -->
+<!-- ========================================= -->
+
+{{ embedded_css | safe }}
+
+</head>
+
+<body>
+
+    <!-- ========================================= -->
+    <!-- BACKGROUND -->
+    <!-- ========================================= -->
+
+    <div class="background-blur blur-one"></div>
+    <div class="background-blur blur-two"></div>
+    <div class="background-grid"></div>
+
+    <!-- ========================================= -->
+    <!-- MAIN LAYOUT -->
+    <!-- ========================================= -->
+
+    <div class="app-layout">
+
+        <!-- ========================================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo-section">
+
+                <div class="logo-circle">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>AI Market</h2>
+                    <span>Intelligence</span>
+
+                </div>
+
+            </div>
+
+            <!-- ========================================= -->
+            <!-- SIDEBAR MENU -->
+            <!-- ========================================= -->
+
+            <nav class="sidebar-menu">
+                                <a href="#hero" class="active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#executive">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Executive</span>
+                </a>
+
+                <a href="#analytics">
+                    <i class="fa-solid fa-chart-column"></i>
+                    <span>Analytics</span>
+                </a>
+
+                <a href="#trends">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>AI Trends</span>
+                </a>
+
+                <a href="#technology">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>Technologies</span>
+                </a>
+
+                <a href="#companies">
+                    <i class="fa-solid fa-building"></i>
+                    <span>Companies</span>
+                </a>
+
+                <a href="#news">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>AI News</span>
+                </a>
+
+                <a href="#github">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+
+                <a href="#report">
+                    <i class="fa-solid fa-file-waveform"></i>
+                    <span>Report</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="ai-status">
+
+                    <span class="status-dot"></span>
+
+                    <span>AI Engine Online</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- ========================================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ========================================= -->
+
+        <main class="main-content">
+
+            <!-- ========================================= -->
+            <!-- TOP BAR -->
+            <!-- ========================================= -->
+
+            <header class="topbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Search AI news, companies, technologies...">
+
+                </div>
+
+                <div class="topbar-actions">
+                                        <div class="live-indicator">
+
+                        <span class="pulse"></span>
+
+                        <span>LIVE</span>
+
+                    </div>
+
+                    <div class="generated-time">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <span>{{ generated_date }}</span>
+
+                    </div>
+
+                    <button class="action-btn">
+
+                        <i class="fa-solid fa-download"></i>
+
+                        Export Report
+
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- ========================================= -->
+<!-- HERO SECTION -->
+<!-- ========================================= -->
+
+<section
+    class="hero-section"
+    id="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+
+            Artificial Intelligence Platform
+
+        </span>
+
+        <h1 class="hero-title">
+
+            AI Market Intelligence Dashboard
+
+        </h1>
+
+        <p class="hero-subtitle">
+
+            Real-time AI news aggregation, trend analysis,
+            company monitoring, technology intelligence,
+            GitHub repository tracking and AI-powered
+            executive insights generated from live data.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn">
+
+                <i class="fa-solid fa-chart-simple"></i>
+
+                View Dashboard
+
+            </button>
+
+            <button class="secondary-btn">
+
+                <i class="fa-solid fa-download"></i>
+
+                Download Report
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-side">
+
+        <div class="hero-icon">
+
+            <i class="fa-solid fa-brain"></i>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ========================================= -->
+<!-- KPI SECTION -->
+<!-- ========================================= -->
+
+<section class="kpi-section">
+
+    <div class="kpi-card">
+
+        <div class="kpi-icon news">
+            <i class="fa-solid fa-newspaper"></i>
+        </div>
+
+        <div class="kpi-content">
+            <h2 class="kpi-value">{{ total_news }}</h2>
+            <p class="kpi-title">Total News</p>
+        </div>
+
+    </div>
+
+    <div class="kpi-card">
+
+        <div class="kpi-icon github">
+            <i class="fa-brands fa-github"></i>
+        </div>
+
+        <div class="kpi-content">
+            <h2 class="kpi-value">{{ total_github_projects }}</h2>
+            <p class="kpi-title">GitHub Projects</p>
+        </div>
+
+    </div>
+
+    <div class="kpi-card">
+
+        <div class="kpi-icon tech">
+            <i class="fa-solid fa-microchip"></i>
+        </div>
+
+        <div class="kpi-content">
+            <h2 class="kpi-value">{{ technologies|length }}</h2>
+            <p class="kpi-title">Technologies</p>
+        </div>
+
+    </div>
+
+    <div class="kpi-card">
+
+        <div class="kpi-icon company">
+            <i class="fa-solid fa-building"></i>
+        </div>
+
+        <div class="kpi-content">
+            <h2 class="kpi-value">{{ companies|length }}</h2>
+            <p class="kpi-title">Companies</p>
+        </div>
+
+    </div>
+
+</section>
+            <!-- ========================================= -->
+            <!-- DASHBOARD CONTENT START -->
+            <!-- ========================================= -->
+
+            <div class="dashboard-content">
+
+                <!-- ========================================= -->
+                <!-- EXECUTIVE SUMMARY -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="executive">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            Executive Intelligence
+
+                        </h2>
+
+                    </div>
+
+                    <div class="executive-card">
+
+                        <div class="executive-content">
+
+                            <pre>{{ executive_summary }}</pre>
+
+                        </div>
+
+                    </div>
+
+                </section>
+                                <!-- ========================================= -->
+                <!-- ANALYTICS -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="analytics">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-chart-column"></i>
+
+                            Market Analytics
+
+                        </h2>
+
+                    </div>
+
+                    <div class="analytics-grid">
+
+                        <div class="analytics-card">
+
+                            <h3>
+                                       <i class="fa-solid fa-chart-column"></i>
+
+                                Total Market Coverage
+                            </h3>
+
+                            <canvas id="coverageChart"></canvas>
+
+                        </div>
+
+                        <div class="analytics-card">
+
+                            <h3>
+                                <i class="fa-solid fa-chart-pie"></i>
+                                AI Ecosystem Distribution
+                            </h3>
+
+                            <canvas id="ecosystemChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- AI TRENDS -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="trends">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-fire"></i>
+
+                            AI Market Trends
+
+                        </h2>
+
+                    </div>
+
+                    <div class="trend-grid">
+
+                        {% if trends %}
+
+                            {% for trend in trends %}
+
+                                <div class="trend-card">
+
+                                    <div class="trend-number">
+
+                                        {{ loop.index }}
+
+                                    </div>
+
+                                    <div class="trend-content">
+
+                                        <p>
+
+                                            {{ trend }}
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="empty-card">
+
+                                No trend data available.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </section>
+                                <!-- ========================================= -->
+                <!-- TECHNOLOGIES -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="technology">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-microchip"></i>
+
+                            Top AI Technologies
+
+                        </h2>
+
+                    </div>
+
+                    <div class="technology-grid">
+
+                        {% if technologies %}
+
+                            {% for technology in technologies %}
+
+                                <div class="technology-card">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                    <span>{{ technology }}</span>
+
+                                </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="empty-card">
+
+                                No technologies identified.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- COMPANIES -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="companies">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-building"></i>
+
+                            Top AI Companies
+
+                        </h2>
+
+                    </div>
+
+                    <div class="company-grid">
+
+                        {% if companies %}
+
+                            {% for company in companies %}
+
+                                <div class="company-card">
+
+                                    <i class="fa-solid fa-building"></i>
+
+                                    <span>{{ company }}</span>
+
+                                </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="empty-card">
+
+                                No companies identified.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </section>
+                <!-- ========================================= -->
+                <!-- LATEST AI NEWS -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="news">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-newspaper"></i>
+
+                            Latest AI News
+
+                        </h2>
+
+                    </div>
+
+                    <div class="news-grid">
+
+                        {% if news_items %}
+
+                            {% for item in news_items %}
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            {{ item.title }}
+
+                                        </h3>
+
+                                        <p>
+
+                                            {{ item.ai_summary }}
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                {{ item.source }}
+
+                                            </span>
+
+                                            <a
+                                                href="{{ item.link }}"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="empty-card">
+
+                                No AI news available.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- GITHUB PROJECTS -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="github">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-brands fa-github"></i>
+
+                            Trending GitHub Projects
+
+                        </h2>
+
+                    </div>
+
+                    <div class="github-grid">
+                                    {% if github_projects %}
+
+                            {% for project in github_projects %}
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            {{ project.title }}
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        {{ project.ai_summary }}
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="{{ project.link }}"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="empty-card">
+
+                                No GitHub repositories available.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- REPORT OVERVIEW -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="report">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-file-waveform"></i>
+
+                            Report Overview
+
+                        </h2>
+
+                    </div>
+
+                    <div class="report-grid">
+                                          <div class="report-card">
+
+                            <i class="fa-solid fa-newspaper"></i>
+
+                            <h3>Total News</h3>
+
+                            <h1>{{ total_news }}</h1>
+
+                        </div>
+
+                        <div class="report-card">
+
+                            <i class="fa-brands fa-github"></i>
+
+                            <h3>GitHub Projects</h3>
+
+                            <h1>{{ total_github_projects }}</h1>
+
+                        </div>
+
+                        <div class="report-card">
+
+                            <i class="fa-solid fa-building"></i>
+
+                            <h3>Companies</h3>
+
+                            <h1>{{ companies|length }}</h1>
+
+                        </div>
+
+                        <div class="report-card">
+
+                            <i class="fa-solid fa-microchip"></i>
+
+                            <h3>Technologies</h3>
+
+                            <h1>{{ technologies|length }}</h1>
+
+                        </div>
+
+                        <div class="report-card">
+
+                            <i class="fa-solid fa-database"></i>
+
+                            <h3>Total Records</h3>
+
+                            <h1>{{ total_items }}</h1>
+
+                        </div>
+
+                    </div>
+
+                </section>      
+                <!-- ========================================= -->
+                <!-- REPORT STATISTICS -->
+                <!-- ========================================= -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-chart-pie"></i>
+
+                            Report Statistics
+
+                        </h2>
+
+                    </div>
+
+                    <table class="stats-table">
+
+                        <tr>
+
+                            <td>Total AI News</td>
+
+                            <td>{{ total_news }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Total GitHub Projects</td>
+
+                            <td>{{ total_github_projects }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Total Records</td>
+
+                            <td>{{ total_items }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Companies Mentioned</td>
+
+                            <td>{{ companies|length }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Technologies Identified</td>
+
+                            <td>{{ technologies|length }}</td>
+
+                        </tr>
+
+                    </table>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- DASHBOARD FOOTER -->
+                <!-- ========================================= -->
+
+                <footer class="dashboard-footer">
+
+                    <hr>
+
+                    <h3>
+
+                        <i class="fa-solid fa-brain"></i>
+
+                        AI Market Intelligence Platform
+
+                    </h3>
+
+                    <p>
+
+                        Version 2.0
+
+                    </p>
+
+                    <p>
+
+                        Powered by Python • SQLite • Ollama • Jinja2
+
+                    </p>
+
+                    <p>
+
+                        Generated on {{ generated_date }}
+
+                    </p>
+
+                    <p>
+
+                        © 2026 AI Market Intelligence Platform
+
+                    </p>
+
+                </footer>
+                   </div>
+
+        </main>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- CHART.JS -->
+    <!-- ========================================= -->
+
+    <script>
+
+        const coverageCanvas = document.getElementById("coverageChart");
+
+        if (coverageCanvas) {
+
+            new Chart(coverageCanvas, {
+
+                type: "bar",
+
+                data: {
+
+                    labels: [
+                        "News",
+                        "GitHub",
+                        "Companies",
+                        "Technologies"
+                    ],
+
+                    datasets: [{
+
+                        label: "AI Market Coverage",
+
+                        data: [
+                            {{ total_news }},
+                            {{ total_github_projects }},
+                            {{ companies|length }},
+                            {{ technologies|length }}
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    plugins: {
+
+                        legend: {
+
+                            display: false
+
+                        }
+
+                    }
+
+                }
+
+            });
+
+        }
+
+        const ecosystemCanvas = document.getElementById("ecosystemChart");
+
+        if (ecosystemCanvas) {
+
+            new Chart(ecosystemCanvas, {
+
+                type: "doughnut",
+
+                data: {
+
+                    labels: [
+                        "News",
+                        "GitHub",
+                        "Companies",
+                        "Technologies"
+                    ],
+
+                    datasets: [{
+
+                        data: [
+                            {{ total_news }},
+                            {{ total_github_projects }},
+                            {{ companies|length }},
+                            {{ technologies|length }}
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>         

@@ -1,0 +1,4975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ========================================= -->
+    <!-- META -->
+    <!-- ========================================= -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Market Intelligence Platform</title>
+
+    <!-- ========================================= -->
+    <!-- GOOGLE FONTS -->
+    <!-- ========================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- ========================================= -->
+    <!-- FONT AWESOME -->
+    <!-- ========================================= -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ========================================= -->
+    <!-- CHART JS -->
+    <!-- ========================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- ========================================= -->
+<!-- STYLESHEET -->
+<!-- ========================================= -->
+
+<style>
+/* ==========================================================
+   AI Market Intelligence Platform
+   Enterprise Dashboard Stylesheet
+   Part 1 - Foundation
+========================================================== */
+
+/* ==========================================================
+   GOOGLE FONTS
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ==========================================================
+   CSS RESET
+========================================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================================================
+   ROOT VARIABLES
+========================================================== */
+
+:root{
+
+    --bg-primary:#0b1220;
+    --bg-secondary:#131c31;
+    --bg-card:rgba(20,31,54,.82);
+
+    --primary:#4f8cff;
+    --primary-hover:#3b78f2;
+
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+
+    --text-primary:#ffffff;
+    --text-secondary:#c8d2e6;
+    --text-muted:#8fa1c2;
+
+    --border:rgba(255,255,255,.08);
+
+    --radius:18px;
+
+    --shadow:
+        0 20px 40px rgba(0,0,0,.35);
+
+    --transition:.30s ease;
+
+    --sidebar-width:280px;
+
+}
+
+/* ==========================================================
+   HTML
+========================================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:var(--bg-primary);
+
+    color:var(--text-primary);
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+}
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+
+/* ==========================================================
+   LISTS
+========================================================== */
+
+ul{
+
+    list-style:none;
+
+}
+
+/* ==========================================================
+   IMAGES
+========================================================== */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/* ==========================================================
+   CUSTOM SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-hover);
+
+}
+
+/* ==========================================================
+   BACKGROUND EFFECTS
+========================================================== */
+
+.background-blur{
+
+    position:fixed;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    filter:blur(130px);
+
+    opacity:.18;
+
+    z-index:-2;
+
+}
+
+.blur-one{
+
+    top:-120px;
+
+    left:-120px;
+
+    background:#2563eb;
+
+}
+
+.blur-two{
+
+    bottom:-120px;
+
+    right:-120px;
+
+    background:#9333ea;
+
+}
+
+.background-grid{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-3;
+
+    background-image:
+
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
+    background-size:40px 40px;
+
+}
+
+/* ==========================================================
+   MAIN LAYOUT
+========================================================== */
+
+.app-layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* ==========================================================
+   MAIN CONTENT
+========================================================== */
+
+.main-content{
+
+    flex:1;
+
+    margin-left:var(--sidebar-width);
+
+    padding:32px 36px;
+
+}
+/* ==========================================================
+   DASHBOARD CONTENT
+========================================================== */
+
+.dashboard-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:40px;
+
+}
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:var(--sidebar-width);
+
+    height:100vh;
+
+    background:rgba(14,22,38,.96);
+
+    backdrop-filter:blur(22px);
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:28px 22px;
+     
+     overflow-y:auto;
+
+    z-index:1000; 
+
+}
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.logo-section{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-bottom:45px;
+
+}
+
+.logo-circle{
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#4f8cff,#7c3aed);
+
+    color:#fff;
+
+    font-size:28px;
+
+    box-shadow:0 12px 25px rgba(79,140,255,.35);
+
+}
+
+.logo-text h2{
+
+    font-size:24px;
+
+    font-weight:800;
+
+    font-family:'Space Grotesk',sans-serif;
+
+}
+
+.logo-text span{
+
+    color:var(--text-muted);
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+}
+
+/* ==========================================================
+   SIDEBAR MENU
+========================================================== */
+
+.sidebar-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    flex:1;
+
+}
+
+.sidebar-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    color:var(--text-secondary);
+
+    transition:var(--transition);
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.sidebar-menu a i{
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:18px;
+
+}
+
+.sidebar-menu a:hover{
+
+    background:rgba(79,140,255,.14);
+
+    color:#fff;
+
+    transform:translateX(6px);
+
+}
+
+.sidebar-menu a.active{
+
+    background:linear-gradient(90deg,#4f8cff,#2563eb);
+
+    color:#fff;
+
+    box-shadow:0 12px 24px rgba(79,140,255,.35);
+
+}
+
+/* ==========================================================
+   SIDEBAR FOOTER
+========================================================== */
+
+.sidebar-bottom{
+
+    padding-top:25px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.ai-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+}
+
+.status-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--success);
+
+    box-shadow:0 0 10px var(--success);
+
+    animation:pulseStatus 1.8s infinite;
+
+}
+
+@keyframes pulseStatus{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.6);
+
+        opacity:.5;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+/* ==========================================================
+   TOP BAR
+========================================================== */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:24px;
+
+    margin-bottom:40px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ==========================================================
+   SEARCH BOX
+========================================================== */
+
+.search-box{
+
+    flex:1;
+
+    min-width:300px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:15px 20px;
+
+    border-radius:16px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    transition:var(--transition);
+
+}
+
+.search-box:hover{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 18px rgba(79,140,255,.15);
+
+}
+
+.search-box:focus-within{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 20px rgba(79,140,255,.25);
+
+}
+
+.search-box i{
+
+    color:var(--text-muted);
+
+    font-size:16px;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:var(--text-primary);
+
+    font-size:15px;
+
+    font-family:inherit;
+
+}
+
+.search-box input::placeholder{
+
+    color:var(--text-muted);
+
+}
+
+/* ==========================================================
+   TOPBAR ACTIONS
+========================================================== */
+
+.topbar-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ==========================================================
+   LIVE INDICATOR
+========================================================== */
+
+.live-indicator{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 16px;
+
+    border-radius:50px;
+
+    background:rgba(34,197,94,.12);
+
+    border:1px solid rgba(34,197,94,.25);
+
+    color:var(--success);
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+.pulse{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--success);
+
+    animation:livePulse 1.5s infinite;
+
+}
+
+@keyframes livePulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.7);
+
+        opacity:.35;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================================================
+   GENERATED TIME
+========================================================== */
+
+.generated-time{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    color:var(--text-secondary);
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+.generated-time i{
+
+    color:var(--primary);
+
+}
+
+/* ==========================================================
+   ACTION BUTTON
+========================================================== */
+
+.action-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:13px 22px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#4f8cff,#2563eb);
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    box-shadow:0 10px 22px rgba(79,140,255,.28);
+
+}
+
+.action-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 16px 32px rgba(79,140,255,.38);
+
+}
+
+.action-btn:active{
+
+    transform:translateY(0);
+
+}
+/* ==========================================================
+   HERO SECTION
+========================================================== */
+
+.hero-section{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    margin-bottom:40px;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(79,140,255,.12),
+        rgba(124,58,237,.10)
+    );
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.hero-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-80px;
+
+    right:-80px;
+
+    width:240px;
+
+    height:240px;
+
+    border-radius:50%;
+
+    background:rgba(79,140,255,.12);
+
+    filter:blur(40px);
+
+}
+
+.hero-content{
+
+    flex:1;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================================
+   HERO BADGE
+========================================================== */
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(79,140,255,.15);
+
+    border:1px solid rgba(79,140,255,.25);
+
+    color:var(--primary);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+/* ==========================================================
+   HERO TITLE
+========================================================== */
+
+.hero-title{
+
+    font-family:'Space Grotesk',sans-serif;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    margin-bottom:18px;
+
+    color:var(--text-primary);
+
+}
+
+/* ==========================================================
+   HERO SUBTITLE
+========================================================== */
+
+.hero-subtitle{
+
+    max-width:700px;
+
+    color:var(--text-secondary);
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   HERO RIGHT PANEL
+========================================================== */
+
+.hero-side{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-width:240px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.hero-icon{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #4f8cff,
+        #7c3aed
+    );
+
+    color:#fff;
+
+    font-size:56px;
+
+    box-shadow:0 25px 60px rgba(79,140,255,.35);
+
+}
+/* ==========================================================
+   HERO BUTTONS
+========================================================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.primary-btn{
+
+    background:linear-gradient(135deg,#4f8cff,#2563eb);
+
+    color:#fff;
+
+    box-shadow:0 12px 24px rgba(79,140,255,.28);
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 34px rgba(79,140,255,.40);
+
+}
+
+.secondary-btn{
+
+    background:transparent;
+
+    color:var(--text-primary);
+
+    border:1px solid var(--border);
+
+}
+
+.secondary-btn:hover{
+
+    background:rgba(255,255,255,.06);
+
+    transform:translateY(-3px);
+
+}
+/* ==========================================================
+   KPI SECTION
+========================================================== */
+
+.kpi-section{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:24px;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================================================
+   KPI CARD
+========================================================== */
+
+.kpi-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:24px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(20px);
+
+    transition:var(--transition);
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.kpi-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(79,140,255,.35);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
+   KPI TOP GLOW
+========================================================== */
+
+.kpi-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #4f8cff,
+        #7c3aed
+    );
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:var(--transition);
+
+}
+
+.kpi-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/* ==========================================================
+   KPI ICON
+========================================================== */
+
+.kpi-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:30px;
+
+    flex-shrink:0;
+
+    transition:var(--transition);
+
+}
+
+.kpi-card:hover .kpi-icon{
+
+    transform:scale(1.08) rotate(-5deg);
+
+}
+
+/* ==========================================================
+   KPI ICON COLORS
+========================================================== */
+
+.kpi-icon.news{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+}
+
+.kpi-icon.github{
+
+    background:linear-gradient(
+        135deg,
+        #111827,
+        #374151
+    );
+
+}
+
+.kpi-icon.tech{
+
+    background:linear-gradient(
+        135deg,
+        #7c3aed,
+        #9333ea
+    );
+
+}
+
+.kpi-icon.company{
+
+    background:linear-gradient(
+        135deg,
+        #16a34a,
+        #22c55e
+    );
+
+}
+
+/* ==========================================================
+   KPI CONTENT
+========================================================== */
+
+.kpi-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    flex:1;
+
+}
+
+/* ==========================================================
+   KPI VALUE
+========================================================== */
+
+.kpi-value{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:var(--text-primary);
+
+    margin-bottom:6px;
+
+    line-height:1;
+
+}
+
+/* ==========================================================
+   KPI TITLE
+========================================================== */
+
+.kpi-title{
+
+    font-size:15px;
+
+    color:var(--text-secondary);
+
+    font-weight:500;
+
+    letter-spacing:.3px;
+
+}/* ==========================================================
+   ANALYTICS SECTION
+========================================================== */
+
+.analytics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+
+    gap:28px;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================================================
+   ANALYTICS CARD
+========================================================== */
+
+.analytics-card{
+
+    position:relative;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    transition:var(--transition);
+
+    overflow:hidden;
+
+    min-height:420px;
+
+}
+
+/* ==========================================================
+   HOVER EFFECT
+========================================================== */
+
+.analytics-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(79,140,255,.30);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
+   TOP GLOW
+========================================================== */
+
+.analytics-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #4f8cff,
+        #7c3aed
+    );
+
+}
+
+/* ==========================================================
+   CARD TITLE
+========================================================== */
+
+.analytics-card h3{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:24px;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:var(--text-primary);
+
+    font-family:'Space Grotesk',sans-serif;
+
+}
+
+/* ==========================================================
+   CHART CONTAINER
+========================================================== */
+
+.analytics-card canvas{
+
+    width:100% !important;
+
+    height:300px !important;
+
+}
+
+/* ==========================================================
+   CHART ANIMATION
+========================================================== */
+
+.analytics-card{
+
+    animation:fadeChart .6s ease;
+
+}
+
+@keyframes fadeChart{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ==========================================================
+   DASHBOARD SECTIONS
+========================================================== */
+
+.dashboard-section{
+
+    margin-bottom:50px;
+
+}
+
+/* ==========================================================
+   SECTION HEADER
+========================================================== */
+
+.section-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:24px;
+
+}
+
+.section-header h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:var(--text-primary);
+
+    font-family:'Space Grotesk',sans-serif;
+
+}
+
+.section-header h2 i{
+
+    color:#4f8cff;
+
+    font-size:26px;
+
+}
+
+/* ==========================================================
+   EXECUTIVE CARD
+========================================================== */
+
+.executive-card{
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:32px;
+
+    backdrop-filter:blur(20px);
+
+    transition:var(--transition);
+
+}
+
+.executive-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:rgba(79,140,255,.35);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
+   EXECUTIVE CONTENT
+========================================================== */
+
+.executive-content{
+
+    white-space:pre-wrap;
+
+    line-height:1.9;
+
+    font-size:16px;
+
+    color:var(--text-secondary);
+
+}
+
+.executive-content pre{
+
+    margin:0;
+
+    white-space:pre-wrap;
+
+    font-family:inherit;
+
+}
+
+/* ==========================================================
+   TREND GRID
+========================================================== */
+
+.trend-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:22px;
+
+}
+
+/* ==========================================================
+   TREND CARD
+========================================================== */
+
+.trend-card{
+
+    position:relative;
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:flex-start;
+
+    padding:26px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+}
+
+.trend-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(79,140,255,.35);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
+   TREND NUMBER
+========================================================== */
+
+.trend-number{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#ffffff;
+
+    background:linear-gradient(
+        135deg,
+        #4f8cff,
+        #7c3aed
+    );
+
+}
+
+/* ==========================================================
+   TREND CONTENT
+========================================================== */
+
+.trend-content{
+
+    flex:1;
+
+}
+
+.trend-content p{
+
+    margin:0;
+
+    font-size:15px;
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   EMPTY CARD
+========================================================== */
+
+.empty-card{
+
+    grid-column:1/-1;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    background:var(--bg-card);
+
+    border:1px dashed rgba(255,255,255,.15);
+
+    color:var(--text-secondary);
+
+    font-size:16px;
+
+}
+/* ==========================================================
+   TECHNOLOGY GRID
+========================================================== */
+
+.technology-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+}
+
+/* ==========================================================
+   TECHNOLOGY CARD
+========================================================== */
+
+.technology-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:22px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    backdrop-filter:blur(20px);
+
+    transition:var(--transition);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.technology-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(79,140,255,.35);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.technology-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:linear-gradient(
+        180deg,
+        #4f8cff,
+        #7c3aed
+    );
+
+}
+
+.technology-card i{
+
+    width:54px;
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #4f8cff,
+        #7c3aed
+    );
+
+    color:#fff;
+
+    font-size:22px;
+
+    flex-shrink:0;
+
+}
+
+.technology-card span{
+
+    color:var(--text-primary);
+
+    font-size:16px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+}
+
+/* ==========================================================
+   COMPANY GRID
+========================================================== */
+
+.company-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+}
+
+/* ==========================================================
+   COMPANY CARD
+========================================================== */
+
+.company-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:22px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    backdrop-filter:blur(20px);
+
+    transition:var(--transition);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.company-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(34,197,94,.35);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.company-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:linear-gradient(
+        180deg,
+        #22c55e,
+        #16a34a
+    );
+
+}
+
+.company-card i{
+
+    width:54px;
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #22c55e,
+        #16a34a
+    );
+
+    color:#fff;
+
+    font-size:22px;
+
+    flex-shrink:0;
+
+}
+
+.company-card span{
+
+    color:var(--text-primary);
+
+    font-size:16px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+}
+/* ==========================================================
+   NEWS GRID
+========================================================== */
+
+.news-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+
+    gap:24px;
+
+}
+
+/* ==========================================================
+   NEWS CARD
+========================================================== */
+
+.news-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(20px);
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.news-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(79,140,255,.35);
+
+    box-shadow:0 24px 50px rgba(0,0,0,.35);
+
+}
+
+.news-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #7c3aed
+    );
+
+}
+
+.news-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+    padding:28px;
+
+}
+
+.news-content h3{
+
+    margin:0 0 16px;
+
+    color:var(--text-primary);
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1.5;
+
+}
+
+.news-content p{
+
+    flex:1;
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+    margin-bottom:24px;
+
+}
+
+/* ==========================================================
+   NEWS FOOTER
+========================================================== */
+
+.news-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-top:18px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.news-source{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(79,140,255,.12);
+
+    color:#7cb3ff;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.news-footer a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#4f8cff;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.news-footer a:hover{
+
+    color:#7cb3ff;
+
+}
+
+/* ==========================================================
+   GITHUB GRID
+========================================================== */
+
+.github-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+
+    gap:24px;
+
+}
+
+/* ==========================================================
+   GITHUB CARD
+========================================================== */
+
+.github-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(20px);
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.github-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(34,197,94,.35);
+
+    box-shadow:0 24px 50px rgba(0,0,0,.35);
+
+}
+
+.github-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #16a34a
+    );
+
+}
+
+/* ==========================================================
+   GITHUB HEADER
+========================================================== */
+
+.github-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:28px 28px 0;
+
+}
+
+.github-header i{
+
+    font-size:28px;
+
+    color:#22c55e;
+
+}
+
+.github-header h3{
+
+    margin:0;
+
+    color:var(--text-primary);
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1.5;
+
+}
+
+/* ==========================================================
+   GITHUB CONTENT
+========================================================== */
+
+.github-card p{
+
+    flex:1;
+
+    padding:20px 28px;
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   GITHUB FOOTER
+========================================================== */
+
+.github-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 28px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.github-footer span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(34,197,94,.12);
+
+    color:#4ade80;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.github-footer a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    text-decoration:none;
+
+    color:#22c55e;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.github-footer a:hover{
+
+    color:#4ade80;
+
+}
+/* ==========================================================
+   REPORT GRID
+========================================================== */
+
+.report-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:24px;
+
+}
+
+.report-card{
+
+    padding:28px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    text-align:center;
+
+    backdrop-filter:blur(20px);
+
+    transition:var(--transition);
+
+}
+
+.report-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(79,140,255,.35);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.report-card i{
+
+    font-size:36px;
+
+    color:#4f8cff;
+
+    margin-bottom:18px;
+
+}
+
+.report-card h3{
+
+    margin-bottom:14px;
+
+    color:var(--text-secondary);
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+.report-card h1{
+
+    margin:0;
+
+    font-size:40px;
+
+    color:var(--text-primary);
+
+    font-weight:800;
+
+}
+
+/* ==========================================================
+   STATISTICS TABLE
+========================================================== */
+
+.stats-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+}
+
+.stats-table tr{
+
+    transition:var(--transition);
+
+}
+
+.stats-table tr:hover{
+
+    background:rgba(255,255,255,.03);
+
+}
+
+.stats-table td{
+
+    padding:18px 22px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    color:var(--text-secondary);
+
+    font-size:15px;
+
+}
+
+.stats-table tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+.stats-table td:last-child{
+
+    text-align:right;
+
+    font-weight:700;
+
+    color:var(--text-primary);
+
+}
+
+/* ==========================================================
+   DASHBOARD FOOTER
+========================================================== */
+
+.dashboard-footer{
+
+    margin-top:60px;
+
+    padding:40px 0;
+
+    text-align:center;
+
+}
+
+.dashboard-footer hr{
+
+    border:none;
+
+    height:1px;
+
+    background:rgba(255,255,255,.08);
+
+    margin-bottom:30px;
+
+}
+
+.dashboard-footer h3{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--text-primary);
+
+    font-family:'Space Grotesk',sans-serif;
+
+    margin-bottom:18px;
+
+}
+
+.dashboard-footer h3 i{
+
+    color:#4f8cff;
+
+}
+
+.dashboard-footer p{
+
+    margin:8px 0;
+
+    color:var(--text-secondary);
+
+    font-size:15px;
+
+}
+/* ==========================================================
+   RESPONSIVE - TABLET
+========================================================== */
+
+@media (max-width:1024px){
+
+    .sidebar{
+
+        width:90px;
+
+    }
+
+    .sidebar .logo-text,
+
+    .sidebar-menu span,
+
+    .sidebar-bottom{
+
+        display:none;
+
+    }
+
+    .main-content{
+
+        margin-left:90px;
+
+    }
+
+    .hero-section{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:30px;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+    .hero-side{
+
+        justify-content:center;
+
+    }
+
+    .analytics-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVE - MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    .main-content{
+
+        margin-left:0;
+
+        padding:20px;
+
+    }
+
+    .sidebar{
+
+        display:none;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:20px;
+
+    }
+
+    .topbar-actions{
+
+        justify-content:space-between;
+
+        flex-wrap:wrap;
+
+    }
+
+    .hero-title{
+
+        font-size:36px;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:16px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .primary-btn,
+
+    .secondary-btn{
+
+        width:100%;
+
+    }
+
+    .kpi-section{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .analytics-grid,
+
+    .trend-grid,
+
+    .technology-grid,
+
+    .company-grid,
+
+    .news-grid,
+
+    .github-grid,
+
+    .report-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .news-footer,
+
+    .github-footer{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:14px;
+
+    }
+
+    .stats-table td{
+
+        padding:14px;
+
+        font-size:14px;
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVE - SMALL MOBILE
+========================================================== */
+
+@media (max-width:480px){
+
+    .hero-title{
+
+        font-size:30px;
+
+    }
+
+    .section-header h2{
+
+        font-size:22px;
+
+    }
+
+    .kpi-value{
+
+        font-size:28px;
+
+    }
+
+    .report-card h1{
+
+        font-size:32px;
+
+    }
+
+    .analytics-card{
+
+        min-height:340px;
+
+    }
+
+}
+</style>
+
+</head>
+
+<body>
+
+    <!-- ========================================= -->
+    <!-- BACKGROUND -->
+    <!-- ========================================= -->
+
+    <div class="background-blur blur-one"></div>
+    <div class="background-blur blur-two"></div>
+    <div class="background-grid"></div>
+
+    <!-- ========================================= -->
+    <!-- MAIN LAYOUT -->
+    <!-- ========================================= -->
+
+    <div class="app-layout">
+
+        <!-- ========================================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo-section">
+
+                <div class="logo-circle">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>AI Market</h2>
+                    <span>Intelligence</span>
+
+                </div>
+
+            </div>
+
+            <!-- ========================================= -->
+            <!-- SIDEBAR MENU -->
+            <!-- ========================================= -->
+
+            <nav class="sidebar-menu">
+                                <a href="#hero" class="active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#executive">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Executive</span>
+                </a>
+
+                <a href="#analytics">
+                    <i class="fa-solid fa-chart-column"></i>
+                    <span>Analytics</span>
+                </a>
+
+                <a href="#trends">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>AI Trends</span>
+                </a>
+
+                <a href="#technology">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>Technologies</span>
+                </a>
+
+                <a href="#companies">
+                    <i class="fa-solid fa-building"></i>
+                    <span>Companies</span>
+                </a>
+
+                <a href="#news">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>AI News</span>
+                </a>
+
+                <a href="#github">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+
+                <a href="#report">
+                    <i class="fa-solid fa-file-waveform"></i>
+                    <span>Report</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="ai-status">
+
+                    <span class="status-dot"></span>
+
+                    <span>AI Engine Online</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- ========================================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ========================================= -->
+
+        <main class="main-content">
+
+            <!-- ========================================= -->
+            <!-- TOP BAR -->
+            <!-- ========================================= -->
+
+            <header class="topbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Search AI news, companies, technologies...">
+
+                </div>
+
+                <div class="topbar-actions">
+                                        <div class="live-indicator">
+
+                        <span class="pulse"></span>
+
+                        <span>LIVE</span>
+
+                    </div>
+
+                    <div class="generated-time">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <span>02 August 2026 02:36 AM</span>
+
+                    </div>
+
+                    <button class="action-btn">
+
+                        <i class="fa-solid fa-download"></i>
+
+                        Export Report
+
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- ========================================= -->
+<!-- HERO SECTION -->
+<!-- ========================================= -->
+
+<section
+    class="hero-section"
+    id="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+
+            Artificial Intelligence Platform
+
+        </span>
+
+        <h1 class="hero-title">
+
+            AI Market Intelligence Dashboard
+
+        </h1>
+
+        <p class="hero-subtitle">
+
+            Real-time AI news aggregation, trend analysis,
+            company monitoring, technology intelligence,
+            GitHub repository tracking and AI-powered
+            executive insights generated from live data.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn">
+
+                <i class="fa-solid fa-chart-simple"></i>
+
+                View Dashboard
+
+            </button>
+
+            <button class="secondary-btn">
+
+                <i class="fa-solid fa-download"></i>
+
+                Download Report
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-side">
+
+        <div class="hero-icon">
+
+            <i class="fa-solid fa-brain"></i>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ========================================= -->
+<!-- KPI SECTION -->
+<!-- ========================================= -->
+
+<section class="kpi-section">
+
+    <div class="kpi-card">
+
+        <div class="kpi-icon news">
+            <i class="fa-solid fa-newspaper"></i>
+        </div>
+
+        <div class="kpi-content">
+            <h2 class="kpi-value">20</h2>
+            <p class="kpi-title">Total News</p>
+        </div>
+
+    </div>
+
+    <div class="kpi-card">
+
+        <div class="kpi-icon github">
+            <i class="fa-brands fa-github"></i>
+        </div>
+
+        <div class="kpi-content">
+            <h2 class="kpi-value">10</h2>
+            <p class="kpi-title">GitHub Projects</p>
+        </div>
+
+    </div>
+
+    <div class="kpi-card">
+
+        <div class="kpi-icon tech">
+            <i class="fa-solid fa-microchip"></i>
+        </div>
+
+        <div class="kpi-content">
+            <h2 class="kpi-value">5</h2>
+            <p class="kpi-title">Technologies</p>
+        </div>
+
+    </div>
+
+    <div class="kpi-card">
+
+        <div class="kpi-icon company">
+            <i class="fa-solid fa-building"></i>
+        </div>
+
+        <div class="kpi-content">
+            <h2 class="kpi-value">5</h2>
+            <p class="kpi-title">Companies</p>
+        </div>
+
+    </div>
+
+</section>
+            <!-- ========================================= -->
+            <!-- DASHBOARD CONTENT START -->
+            <!-- ========================================= -->
+
+            <div class="dashboard-content">
+
+                <!-- ========================================= -->
+                <!-- EXECUTIVE SUMMARY -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="executive">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            Executive Intelligence
+
+                        </h2>
+
+                    </div>
+
+                    <div class="executive-card">
+
+                        <div class="executive-content">
+
+                            <pre>The report &#34;AMAI-GmbH/AI-Expert-Roadmap&#34; outlines a comprehensive AI learning roadmap for individuals aiming to become proficient by the end of 2022. Key elements include structured learning through foundational courses, practical projects, and continuous engagement with relevant communities. AIHawk is an AI-driven platform that automates job application processes using artificial intelligence to streamline the job hunting journey. This tool has been developed on GitHub and aims to reduce user effort while increasing the likelihood of successful applications in a competitive labor market. &#34;owainlewis/awesome-artificial-intelligence&#34; is a comprehensive curated list of resources for AI, including courses, books, video lectures, and papers. Its professional compilation ensures learners have access to high-quality content from reliable sources. The &#34;tangyudi/Ai-Learn&#34; repository provides an extensive AI learning roadmap with over 200 practical case studies and projects, covering essential domains such as Python programming, mathematics, machine learning, data analysis, deep learning, computer vision, natural language processing, among others. &#34;Mycroft Core&#34; is the foundational component of the Mycroft AI platform, enabling seamless interactions between users and AI through voice-controlled smart assistants. It plays a crucial role in integrating various hardware and software components to create personalized AI experiences within the ecosystem of connected devices.</pre>
+
+                        </div>
+
+                    </div>
+
+                </section>
+                                <!-- ========================================= -->
+                <!-- ANALYTICS -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="analytics">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-chart-column"></i>
+
+                            Market Analytics
+
+                        </h2>
+
+                    </div>
+
+                    <div class="analytics-grid">
+
+                        <div class="analytics-card">
+
+                            <h3>
+                                       <i class="fa-solid fa-chart-column"></i>
+
+                                Total Market Coverage
+                            </h3>
+
+                            <canvas id="coverageChart"></canvas>
+
+                        </div>
+
+                        <div class="analytics-card">
+
+                            <h3>
+                                <i class="fa-solid fa-chart-pie"></i>
+                                AI Ecosystem Distribution
+                            </h3>
+
+                            <canvas id="ecosystemChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- AI TRENDS -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="trends">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-fire"></i>
+
+                            AI Market Trends
+
+                        </h2>
+
+                    </div>
+
+                    <div class="trend-grid">
+
+                        
+
+                            
+
+                                <div class="trend-card">
+
+                                    <div class="trend-number">
+
+                                        1
+
+                                    </div>
+
+                                    <div class="trend-content">
+
+                                        <p>
+
+                                            AI-Driven Job Application Automation - Tools like AIHawk streamline job hunting by automating repetitive tasks, reducing user effort.
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            
+
+                                <div class="trend-card">
+
+                                    <div class="trend-number">
+
+                                        2
+
+                                    </div>
+
+                                    <div class="trend-content">
+
+                                        <p>
+
+                                            Enhanced Learning Resources - Repositories such as &#34;owainlewis/awesome-artificial-intelligence&#34; provide comprehensive curated lists of educational materials for both students and professionals.
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            
+
+                                <div class="trend-card">
+
+                                    <div class="trend-number">
+
+                                        3
+
+                                    </div>
+
+                                    <div class="trend-content">
+
+                                        <p>
+
+                                            AI-Integrated Smart Assistants - Platforms like Mycroft Core enable voice-controlled smart assistants with AI integration, facilitating natural language processing and speech recognition.
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            
+
+                                <div class="trend-card">
+
+                                    <div class="trend-number">
+
+                                        4
+
+                                    </div>
+
+                                    <div class="trend-content">
+
+                                        <p>
+
+                                            Efficient Language Model Advancements - OpenAI&#39;s GPT-5.6 represents a significant improvement in price-performance ratios for advanced AI models, enabling broader application across various industries.
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            
+
+                                <div class="trend-card">
+
+                                    <div class="trend-number">
+
+                                        5
+
+                                    </div>
+
+                                    <div class="trend-content">
+
+                                        <p>
+
+                                            Integration of Advanced Technologies in Retail - Companies like Avatarin leverage OpenAI’s GPT Realtime to build efficient customer service systems through real-time AI technology.
+
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            
+
+                        
+
+                    </div>
+
+                </section>
+                                <!-- ========================================= -->
+                <!-- TECHNOLOGIES -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="technology">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-microchip"></i>
+
+                            Top AI Technologies
+
+                        </h2>
+
+                    </div>
+
+                    <div class="technology-grid">
+
+                        
+
+                            
+
+                                <div class="technology-card">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                    <span>Machine Learning and Deep Learning Frameworks - Popular frameworks such as TensorFlow, PyTorch, and Keras are widely used for practical projects and AI implementations.</span>
+
+                                </div>
+
+                            
+
+                                <div class="technology-card">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                    <span>Open-Source Platforms - Repositories like &#34;tangyudi/Ai-Learn&#34; and &#34;owainlewis/awesome-artificial-intelligence&#34; provide valuable resources and learning materials.</span>
+
+                                </div>
+
+                            
+
+                                <div class="technology-card">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                    <span>Voice-Controlled Smart Assistants - Platforms such as Mycroft Core enable seamless integration of AI into smart home devices, enhancing user experience through natural language processing.</span>
+
+                                </div>
+
+                            
+
+                                <div class="technology-card">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                    <span>AI-Driven Job Application Automation Tools - Examples include AIHawk, streamlining job hunting by automating application processes and reducing user effort.</span>
+
+                                </div>
+
+                            
+
+                                <div class="technology-card">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                    <span>Advanced Language Models - GPT-3 variants (e.g., GPT-5.6) represent significant advancements in price-performance ratios for AI models, enabling broader use across various applications.</span>
+
+                                </div>
+
+                            
+
+                        
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- COMPANIES -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="companies">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-building"></i>
+
+                            Top AI Companies
+
+                        </h2>
+
+                    </div>
+
+                    <div class="company-grid">
+
+                        
+
+                            
+
+                                <div class="company-card">
+
+                                    <i class="fa-solid fa-building"></i>
+
+                                    <span>AIHawk</span>
+
+                                </div>
+
+                            
+
+                                <div class="company-card">
+
+                                    <i class="fa-solid fa-building"></i>
+
+                                    <span>MycroftAI</span>
+
+                                </div>
+
+                            
+
+                                <div class="company-card">
+
+                                    <i class="fa-solid fa-building"></i>
+
+                                    <span>Avatarin</span>
+
+                                </div>
+
+                            
+
+                                <div class="company-card">
+
+                                    <i class="fa-solid fa-building"></i>
+
+                                    <span>OpenAI</span>
+
+                                </div>
+
+                            
+
+                                <div class="company-card">
+
+                                    <i class="fa-solid fa-building"></i>
+
+                                    <span>tangyudi</span>
+
+                                </div>
+
+                            
+
+                        
+
+                    </div>
+
+                </section>
+                <!-- ========================================= -->
+                <!-- LATEST AI NEWS -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="news">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-newspaper"></i>
+
+                            Latest AI News
+
+                        </h2>
+
+                    </div>
+
+                    <div class="news-grid">
+
+                        
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Scientific computing in the age of agentic AI
+
+                                        </h3>
+
+                                        <p>
+
+                                            The paper &#34;Scientific Computing in the Age of Agentic Artificial Intelligence&#34; by OpenAI explores the transformative potential of agentic AI for scientific computing. This approach involves designing artificial agents that autonomously execute complex computational tasks, potentially revolutionizing simulations and data processing in fields such as physics, chemistry, and materials science. The significance lies in its ability to automate challenging computations, reduce errors associated with manual coding, and allow scientists to focus more on the interpretation of results rather than programming details. This could lead to significant advancements in research efficiency and innovation across various scientific disciplines.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/scientific-computing-agentic-ai"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            How AI is expanding what people do at work
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article &#34;How AI is Expanding What People Do at Work&#34; from OpenAI highlights the significant impact of artificial intelligence (AI) on job roles and responsibilities. It underscores how AI not only automates routine tasks but also creates new opportunities by augmenting human capabilities, enabling workers to engage in higher-value activities that were previously impractical or impossible without assistance. This expansion is crucial as it allows organizations to achieve greater efficiency while individuals can focus on more creative and strategic initiatives within their work environment.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/how-ai-is-expanding-what-people-do-at-work"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Launching Health in ChatGPT
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article &#34;Launching Health in ChatGPT&#34; from OpenAI introduces an update to their chatbot, ChatGPT, which now includes features specifically aimed at promoting health awareness and well-being. This addition underscores OpenAI&#39;s commitment to integrating AI technology into everyday life, with the goal of providing users with accessible resources and support for managing stress, monitoring diet and exercise habits, and engaging in self-care practices. The launch matters as it highlights how AI can serve not only as a tool for communication but also for fostering health literacy and personal development within broader social contexts.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/health-in-chatgpt"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Building AI infrastructure with the Effingham County community
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article titled &#34;Building AI Infrastructure with the Effingham County Community&#34; discusses OpenAI&#39;s efforts in collaborating with local entities to establish an AI infrastructure within Effingham County. This initiative is significant as it aims to democratize access to advanced artificial intelligence technologies, fostering innovation and development opportunities tailored for the community’s specific needs. By working closely with stakeholders at both the county level and beyond, OpenAI seeks to create a robust ecosystem where educational institutions, small businesses, and public sector entities can leverage AI capabilities, driving economic growth and societal progress through technology integration.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            How news organizations are using AI to advance their vital missions
+
+                                        </h3>
+
+                                        <p>
+
+                                            This article discusses how various news organizations are leveraging artificial intelligence (AI) technologies to enhance their core missions, including improving content quality, automating mundane tasks, and augmenting the speed of information dissemination. The integration of AI not only supports journalists in creating more accurate, efficient reports but also extends the reach of journalistic work by processing vast amounts of data. This highlights the significant role that AI plays in modern journalism, ensuring it remains relevant and effective in an increasingly digital landscape.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/how-news-organizations-are-using-ai"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Advancing the next era of national science
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article, titled &#34;Advancing the Next Era of National Science,&#34; emphasizes the importance of leveraging AI technologies to propel scientific progress at a national level. It highlights how advanced artificial intelligence can revolutionize various fields such as medicine, climate modeling, and fundamental research, potentially leading to significant advancements in understanding complex phenomena and developing innovative solutions for societal challenges. This summary underscores the transformative potential of integrating AI into national science initiatives, enabling more efficient, precise, and comprehensive scientific discoveries.
+
+This summary emphasizes the pivotal role of artificial intelligence (AI) in accelerating scientific discovery at a national scale, suggesting that advanced AI technologies could lead to substantial improvements across various scientific domains.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/advancing-the-next-era-of-national-science"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Introducing OpenAI Presence
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article &#34;Introducing OpenAI Presence&#34; is an announcement from OpenAI, highlighting the company&#39;s continued commitment to advancing artificial intelligence (AI) technology. This update underscores OpenAI’s ongoing efforts in research and development of AI systems that can benefit humanity, emphasizing their dedication to pushing the boundaries of what AI can achieve while maintaining ethical standards. The introduction of a &#34;presence&#34; likely refers to OpenAI’s growing presence or engagement within various AI initiatives and collaborations, underscoring their proactive role in shaping future AI landscapes.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/introducing-openai-presence"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            NTT DATA Group cuts incident analysis to 30 minutes with Codex
+
+                                        </h3>
+
+                                        <p>
+
+                                            This news highlights NTT DATA Group&#39;s implementation of OpenAI&#39;s Codex, which has enabled them to reduce incident analysis time from potentially hours or days to just 30 minutes. This swift improvement in incident response significantly enhances the efficiency and responsiveness of their IT operations, thereby improving overall customer satisfaction and operational reliability.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/ntt-data"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Introducing the ChatGPT for small business program
+
+                                        </h3>
+
+                                        <p>
+
+                                            The introduction of OpenAI&#39;s &#34;ChatGPT for Small Business&#34; marks a significant step towards making advanced AI capabilities more accessible to small enterprises. This program is designed to offer tailored solutions that address the unique challenges faced by small businesses, enabling them to leverage cutting-edge artificial intelligence technologies effectively without requiring extensive technical expertise or high financial investments. By democratizing access to sophisticated AI tools, this initiative aims to empower smaller organizations to compete and innovate in today&#39;s digital landscape more efficiently and competitively.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/introducing-chatgpt-small-business-program"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            OpenAI and Hugging Face partner to address security incident during model evaluation
+
+                                        </h3>
+
+                                        <p>
+
+                                            OpenAI, the developer of GPT-3, has partnered with Hugging Face to address a security incident that occurred during the evaluation of AI models. This collaboration underscores the importance of robust cybersecurity measures in the development and deployment of artificial intelligence technologies. It highlights the need for ongoing vigilance and cooperation between industry leaders to ensure secure advancements in AI research and applications.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/hugging-face-model-evaluation-security-incident"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Ten advances in mathematics and theoretical computer science
+
+                                        </h3>
+
+                                        <p>
+
+                                            The document &#34;Ten Advances in Mathematics and Theoretical Computer Science&#34; is not found as described, presumably due to an error in source identification or title matching. However, if we were to summarize a hypothetical piece with this title that discusses advancements in these fields, it would highlight significant breakthroughs such as new algorithms for machine learning optimization, quantum computing research advancing towards practical applications, and advancements in formal verification techniques for software systems. These advances matter because they push the boundaries of what is computationally feasible, enhance our ability to secure digital communications through more robust cryptographic methods, and contribute to a deeper understanding of complex computational problems, all of which are crucial for technological progress and security.
+
+This hypothetical summary underscores how these advancements not only advance theoretical knowledge but also have tangible applications in areas such as cryptography, optimization, and the development of safer computing systems.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/ten-advances-in-mathematics"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Advancing responsible AI across Europe
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article &#34;Advancing Responsible AI Across Europe&#34; discusses initiatives and strategies aimed at fostering the development of artificial intelligence in a manner that is responsible, ethical, and beneficial for society. This initiative underscores the importance of balancing technological advancement with social considerations to ensure AI&#39;s positive impact on European economies and societies. By highlighting these efforts, it matters because it represents a proactive approach towards mitigating potential risks associated with AI while promoting its deployment that aligns with values such as transparency, fairness, and accountability in decision-making processes.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/advancing-responsible-ai-across-europe"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Building abundant intelligence
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article &#34;Building Abundant Intelligence&#34; from OpenAI does not provide specific details, but in general context, it likely discusses the potential of expanding AI capabilities to create more comprehensive and accessible intelligence. This is crucial because it could lead to significant advancements across various sectors, enabling smarter decision-making, improved productivity, and innovative solutions to complex problems. The focus on &#34;abundant intelligence&#34; suggests a future where AI systems are not only sophisticated but also abundant in their utility and reach, fostering an environment where artificial intelligence permeates everyday life and business operations.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/building-abundant-intelligence"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Univé builds an AI-ready workforce
+
+                                        </h3>
+
+                                        <p>
+
+                                            This article from OpenAI highlights Univé&#39;s approach to building an AI-ready workforce. The company is leveraging advanced AI technologies to enhance employee training, automate routine tasks, and adopt innovative work practices. This initiative aims to equip workers with the necessary skills for a future where artificial intelligence plays a central role in the workplace. As organizations integrate AI into their operations, fostering a workforce capable of adapting and utilizing these tools effectively becomes increasingly crucial for maintaining a competitive edge and operational efficiency.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/unive"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Disrupting a Criminal Scam Operation
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article &#34;Disrupting a Criminal Scam Operation&#34; highlights the use of artificial intelligence (AI) in combating cybercrime. It showcases how sophisticated AI systems are being used to identify patterns, predict perpetrators&#39; next moves, and neutralize fraud schemes, thereby highlighting AI&#39;s potential as an effective tool for cybersecurity. This disruption underscores the increasing importance of integrating advanced technologies into criminal justice practices to stay ahead of evolving threats.
+
+This summary emphasizes the role of AI in enhancing cybersecurity by identifying and mitigating fraudulent activities, which is crucial given the rise of cybercrimes such as phishing and identity theft that pose significant risks to individuals and organizations alike.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/disrupting-malicious-uses-of-ai-criminal-scam-operation"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Advancing the price-performance frontier with GPT-5.6
+
+                                        </h3>
+
+                                        <p>
+
+                                            The report &#34;Advancing the Price-Performance Frontier with GPT-5.6&#34; from OpenAI highlights significant advancements in the efficiency of its large language model, GPT-5.6. This advancement represents a notable improvement in price-performance ratios for AI models, enabling more effective use across various applications and industries where computational resources are limited. As this model continues to evolve, it promises to broaden accessibility and practical application of advanced AI technologies, particularly for sectors that require high performance at lower cost.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            How avatarin built a 24/7 retail agent with GPT-Realtime
+
+                                        </h3>
+
+                                        <p>
+
+                                            This article discusses how Avatarin, a company that operates in the retail space, utilized OpenAI&#39;s GPT-Realtime to build a highly efficient and responsive agent system. This system enables round-the-clock customer service by leveraging real-time AI technology, ensuring customers receive prompt assistance whenever they need it. The integration of such advanced capabilities into daily operations is crucial for businesses aiming to enhance their digital presence and improve user satisfaction, particularly in the context of increasingly competitive retail markets where fast and accurate response times are paramount.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/avatarin"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            How enabling two settings tripled our scores on the ARC-AGI-3 benchmark
+
+                                        </h3>
+
+                                        <p>
+
+                                            This study from OpenAI details how adjusting two specific settings significantly boosted the performance on their ARC-AGI-3 benchmark. By tweaking these parameters, the team observed a tripling of scores, highlighting the importance of hyperparameter optimization and setting configurations in AI model performance tuning. This finding underscores the critical role that careful parameter selection plays in enhancing AI systems&#39; capabilities across various benchmarks.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            Accelerating scientific discovery with ChatGPT for Academic Researchers
+
+                                        </h3>
+
+                                        <p>
+
+                                            The article, though not provided in the description, likely discusses how academic researchers can leverage ChatGPT to accelerate scientific discovery. As an AI model developed by OpenAI, ChatGPT offers enhanced capabilities for text generation and understanding, which could significantly expedite research processes such as literature review, hypothesis formulation, and report writing. This integration of cutting-edge technology into scholarly work promises to democratize access to AI tools, potentially leading to more innovative findings across various scientific disciplines.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/chatgpt-for-academic-researchers"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="news-card">
+
+                                    <div class="news-content">
+
+                                        <h3>
+
+                                            How GPT-5.6 fuses frontier intelligence with frontier efficiency
+
+                                        </h3>
+
+                                        <p>
+
+                                            The title &#34;How GPT-5.6 Fuses Frontier Intelligence with Frontier Efficiency&#34; suggests that OpenAI has developed an advanced version of their popular GPT model, specifically named GPT-5.6. This release integrates cutting-edge intelligence capabilities with unprecedented efficiency and speed, pushing the boundaries of AI language processing capabilities. The fusion of frontier intelligence allows for more sophisticated natural language generation, while frontier efficiency ensures rapid response times that are crucial for real-time applications. This advancement matters because it could significantly enhance conversational agents&#39; abilities to understand and respond to complex queries in a timely manner, potentially revolutionizing fields such as customer service and virtual assistants.
+
+                                        </p>
+
+                                        <div class="news-footer">
+
+                                            <span class="news-source">
+
+                                                OpenAI
+
+                                            </span>
+
+                                            <a
+                                                href="https://openai.com/index/gpt-5-6-frontier-intelligence-efficiency"
+                                                target="_blank">
+
+                                                Read More
+
+                                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                        
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- GITHUB PROJECTS -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="github">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-brands fa-github"></i>
+
+                            Trending GitHub Projects
+
+                        </h2>
+
+                    </div>
+
+                    <div class="github-grid">
+                                    
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            AMAI-GmbH/AI-Expert-Roadmap
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        The document titled &#34;AMAI-GmbH/AI-Expert-Roadmap&#34; outlines a comprehensive plan for individuals aiming to become proficient in Artificial Intelligence by the end of 2022. The roadmap emphasizes structured learning, including foundational courses on AI principles and technologies, practical projects, and continuous engagement with relevant communities and forums. This guide is crucial for professionals looking to upgrade their skill sets or individuals aspiring to enter the field of artificial intelligence, providing a clear path towards expertise within a defined timeframe.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/AMAI-GmbH/AI-Expert-Roadmap"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            feder-cr/Jobs_Applier_AI_Agent_AIHawk
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        AIHawk is an AI-driven platform designed to streamline the job application process, allowing users to apply for multiple positions in a more efficient manner through tailored automation. This solution leverages artificial intelligence to automate repetitive tasks and provide personalized applications, thereby simplifying the job hunting journey for individuals. Developed by feder-cr on GitHub, this tool aims to reduce user effort and increase the likelihood of successful job applications in today&#39;s competitive labor market.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/feder-cr/Jobs_Applier_AI_Agent_AIHawk"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            owainlewis/awesome-artificial-intelligence
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        The &#34;owainlewis/awesome-artificial-intelligence&#34; repository is an extensive curated list of resources for AI, including courses, books, video lectures, and papers. This resource serves as a comprehensive directory that helps learners and professionals navigate through various educational materials to deepen their understanding and proficiency in the field of artificial intelligence. Its professional compilation ensures high-quality content from reliable sources, making it invaluable for both students and experienced practitioners seeking to enhance their AI knowledge and skillset.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/owainlewis/awesome-artificial-intelligence"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            tangyudi/Ai-Learn
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        The repository &#34;tangyudi/Ai-Learn&#34; offers an extensive AI learning roadmap comprising over 200 practical case studies and projects, free with supplementary textbooks. This comprehensive resource is tailored for beginners aiming to transition into the field of artificial intelligence, covering essential domains such as Python programming, mathematics, machine learning, data analysis, deep learning, computer vision, natural language processing, among others. Utilizing popular AI frameworks like TensorFlow, PyTorch, and Keras, this repository serves as a valuable tool for both educational purposes and professional development in the field of artificial intelligence.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/tangyudi/Ai-Learn"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            steven2358/awesome-generative-ai
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        The &#34;steven2358/awesome-generative-ai&#34; repository is a comprehensive curated list of contemporary projects and services in the domain of generative artificial intelligence, hosted on GitHub. This resource serves as an essential reference for professionals, researchers, and enthusiasts interested in exploring cutting-edge AI technologies that can generate new data or content based on learned patterns from existing datasets. Its presence on GitHub underscores its accessibility and ease of integration with a wide range of development environments.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/steven2358/awesome-generative-ai"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            Baiyuetribe/paper2gui
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        &#34;Baiyuetribe/paper2gui&#34; is an open-source project on GitHub aimed at facilitating the deployment of AI papers into graphical user interface (GUI) applications. This initiative seeks to democratize access to advanced artificial intelligence technology, making complex AI models and algorithms more accessible and intuitive for users without specialized technical knowledge. By converting academic research outputs into practical GUI tools, this project accelerates innovation diffusion and empowers a broader range of professionals with the means to implement cutting-edge AI technologies in their work environments, thereby broadening its impact across various industries and applications.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/Baiyuetribe/paper2gui"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            olistic/warriorjs
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        The repository **olistic/warriorjs** on GitHub presents an engaging project that combines elements of game development with Artificial Intelligence (AI). This initiative showcases the integration of AI algorithms into a web-based game environment, enabling players to engage in strategic programming challenges. The significance of this work lies in its potential to educate and inspire developers interested in exploring how AI can enhance interactive applications, particularly in gaming and user interfaces, by leveraging advanced machine learning techniques for dynamic gameplay adaptations.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/olistic/warriorjs"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            aimacode/aima-python
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        The repository titled &#34;aimacode/aima-python&#34; provides a comprehensive Python implementation of algorithms described in Russell and Norvig&#39;s seminal book, &#34;Artificial Intelligence: A Modern Approach.&#34; This resource offers developers and students an accessible way to explore and apply AI concepts through practical programming examples. The matter is significant as it serves as both educational material and a reference for implementing advanced AI techniques in real-world applications.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/aimacode/aima-python"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            norvig/paip-lisp
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        The document &#34;norvig/paip-lisp&#34; presents Lisp code extracted from the textbook &#34;Paradigms of Artificial Intelligence Programming.&#34; This GitHub repository serves as an invaluable resource for AI practitioners and researchers interested in understanding foundational aspects of artificial intelligence programming through the lens of LISP, a language that has significantly influenced modern-day programming paradigms. The content highlights the elegance and power of LISP&#39;s syntax and constructs, making it essential for those aiming to deepen their knowledge in AI and computational linguistics.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/norvig/paip-lisp"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                                <article class="github-card">
+
+                                    <div class="github-header">
+
+                                        <i class="fa-brands fa-github"></i>
+
+                                        <h3>
+
+                                            MycroftAI/mycroft-core
+
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+
+                                        Mycroft Core is the foundational component of the Mycroft AI platform developed by MycroftAI on GitHub. This core system forms the backbone for voice-controlled smart assistants, enabling seamless interactions with users through natural language processing and speech recognition technologies. As a central hub in the ecosystem of connected devices, Mycroft Core plays a crucial role in facilitating the integration of various hardware and software components to create personalized AI experiences.
+
+                                    </p>
+
+                                    <div class="github-footer">
+
+                                        <span>
+
+                                            Open Source
+
+                                        </span>
+
+                                        <a
+                                            href="https://github.com/MycroftAI/mycroft-core"
+                                            target="_blank">
+
+                                            Repository
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            
+
+                        
+
+                    </div>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- REPORT OVERVIEW -->
+                <!-- ========================================= -->
+
+                <section
+                    class="dashboard-section"
+                    id="report">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-file-waveform"></i>
+
+                            Report Overview
+
+                        </h2>
+
+                    </div>
+
+                    <div class="report-grid">
+                                          <div class="report-card">
+
+                            <i class="fa-solid fa-newspaper"></i>
+
+                            <h3>Total News</h3>
+
+                            <h1>20</h1>
+
+                        </div>
+
+                        <div class="report-card">
+
+                            <i class="fa-brands fa-github"></i>
+
+                            <h3>GitHub Projects</h3>
+
+                            <h1>10</h1>
+
+                        </div>
+
+                        <div class="report-card">
+
+                            <i class="fa-solid fa-building"></i>
+
+                            <h3>Companies</h3>
+
+                            <h1>5</h1>
+
+                        </div>
+
+                        <div class="report-card">
+
+                            <i class="fa-solid fa-microchip"></i>
+
+                            <h3>Technologies</h3>
+
+                            <h1>5</h1>
+
+                        </div>
+
+                        <div class="report-card">
+
+                            <i class="fa-solid fa-database"></i>
+
+                            <h3>Total Records</h3>
+
+                            <h1>30</h1>
+
+                        </div>
+
+                    </div>
+
+                </section>      
+                <!-- ========================================= -->
+                <!-- REPORT STATISTICS -->
+                <!-- ========================================= -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            <i class="fa-solid fa-chart-pie"></i>
+
+                            Report Statistics
+
+                        </h2>
+
+                    </div>
+
+                    <table class="stats-table">
+
+                        <tr>
+
+                            <td>Total AI News</td>
+
+                            <td>20</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Total GitHub Projects</td>
+
+                            <td>10</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Total Records</td>
+
+                            <td>30</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Companies Mentioned</td>
+
+                            <td>5</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Technologies Identified</td>
+
+                            <td>5</td>
+
+                        </tr>
+
+                    </table>
+
+                </section>
+
+                <!-- ========================================= -->
+                <!-- DASHBOARD FOOTER -->
+                <!-- ========================================= -->
+
+                <footer class="dashboard-footer">
+
+                    <hr>
+
+                    <h3>
+
+                        <i class="fa-solid fa-brain"></i>
+
+                        AI Market Intelligence Platform
+
+                    </h3>
+
+                    <p>
+
+                        Version 2.0
+
+                    </p>
+
+                    <p>
+
+                        Powered by Python • SQLite • Ollama • Jinja2
+
+                    </p>
+
+                    <p>
+
+                        Generated on 02 August 2026 02:36 AM
+
+                    </p>
+
+                    <p>
+
+                        © 2026 AI Market Intelligence Platform
+
+                    </p>
+
+                </footer>
+                   </div>
+
+        </main>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- CHART.JS -->
+    <!-- ========================================= -->
+
+    <script>
+
+        const coverageCanvas = document.getElementById("coverageChart");
+
+        if (coverageCanvas) {
+
+            new Chart(coverageCanvas, {
+
+                type: "bar",
+
+                data: {
+
+                    labels: [
+                        "News",
+                        "GitHub",
+                        "Companies",
+                        "Technologies"
+                    ],
+
+                    datasets: [{
+
+                        label: "AI Market Coverage",
+
+                        data: [
+                            20,
+                            10,
+                            5,
+                            5
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    plugins: {
+
+                        legend: {
+
+                            display: false
+
+                        }
+
+                    }
+
+                }
+
+            });
+
+        }
+
+        const ecosystemCanvas = document.getElementById("ecosystemChart");
+
+        if (ecosystemCanvas) {
+
+            new Chart(ecosystemCanvas, {
+
+                type: "doughnut",
+
+                data: {
+
+                    labels: [
+                        "News",
+                        "GitHub",
+                        "Companies",
+                        "Technologies"
+                    ],
+
+                    datasets: [{
+
+                        data: [
+                            20,
+                            10,
+                            5,
+                            5
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>         
